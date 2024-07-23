@@ -5,6 +5,7 @@ import uvicorn
 
 from fastapi import FastAPI
 from aiogram import Bot, Dispatcher, types
+from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 
 from src import load_config
@@ -20,7 +21,7 @@ WEBHOOK_URL = config.tg.webhook_url + WEBHOOK_PATH
 
 storage = MemoryStorage()
 
-bot = Bot(token=config.tg.token, parse_mode="HTML")
+bot = Bot(token=config.tg.token, parse_mode=ParseMode.HTML)
 dp = Dispatcher(storage=storage)
 
 
